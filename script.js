@@ -12,8 +12,17 @@ const btn8 = document.querySelector('\\#8');
 const btn9 = document.querySelector('\\#9');
 const multiply = document.querySelector('#multiply');
 const divide = document.querySelector('#divide');
-const subtract = documnet.querySelector('#subtract');
-const add = documnet.querySelector('#add');
+const subtract = document.querySelector('#subtract');
+const add = document.querySelector('#add');
+const screen = document.getElementById('screen-nums')
+
+const btnNum = document.querySelectorAll('.btn-num');
+btnNum.forEach((button) => 
+    button.addEventListener('click', () => toScreen(button.textContent)))
+
+function toScreen(number){
+    screen.textContent += number
+}
 
 // 4 main math functions
 
@@ -37,3 +46,15 @@ function division (num1, num2){
     }
 }
 
+function operate (operator, num1, num2){
+    switch (operator){
+        case '+':
+            return addition(num1, num2);
+        case '-':
+            return subtraction(num1, num2);
+        case '*':
+            return multiplication(num1, num2);
+        case '/':
+            return division(num1, num2);
+    }
+}
