@@ -4,12 +4,13 @@
     border: 2px solid black;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
 }
 
 #screen, #enter-row, .number-rows {
     display: flex;
     justify-content: space-between;
-    margin: 0 25px
+    margin: 0 25px;
 }
 
 #screen {
@@ -17,4 +18,24 @@
     width: 250px;
     margin: 25px auto;
     border: 2px solid black
+}
+
+#clear, #enter {
+    width: 45%;
+}
+
+#btn-clear, #btn-enter {
+    width: 100%;
+}
+
+.number {
+    width: 25%;
+}
+
+.btn-num {
+    width: 90%
+}
+
+#btm-0 {
+    width: 50%
 }
