@@ -15,14 +15,20 @@
 }
 
 #screen {
+    flex-direction: column;
     height: 100px;
     width: 250px;
     margin: 25px auto;
     border: 2px solid black
 }
 
+#previous, #current {
+    width: 100%;
+    text-align: end;
+}
+
 #clear, #enter {
-    width: 45%;
+    width: 48%;
 }
 
 #btn-clear, #btn-enter {
@@ -33,7 +39,7 @@
     width: 25%;
 }
 
-.btn-num {
+.btn-num, .btn-operator {
     width: 90%
 }
 

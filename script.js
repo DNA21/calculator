@@ -1,27 +1,31 @@
 // Initialize all buttons on calculator
 
-const btn0 = document.querySelector('\\#0');
-const btn1 = document.querySelector('\\#1');
-const btn2 = document.querySelector('\\#2');
-const btn3 = document.querySelector('\\#3');
-const btn4 = document.querySelector('\\#4');
-const btn5 = document.querySelector('\\#5');
-const btn6 = document.querySelector('\\#6');
-const btn7 = document.querySelector('\\#7');
-const btn8 = document.querySelector('\\#8');
-const btn9 = document.querySelector('\\#9');
-const multiply = document.querySelector('#multiply');
-const divide = document.querySelector('#divide');
-const subtract = document.querySelector('#subtract');
-const add = document.querySelector('#add');
-const screen = document.getElementById('screen-nums')
+let currentNum = '';
+let previousNum = '';
+
+const screen = document.getElementById('current')
+const previous = document.getElementById('previous')
 
 const btnNum = document.querySelectorAll('.btn-num');
+const btnOperator = document.querySelectorAll('.btn-operator');
+
 btnNum.forEach((button) => 
-    button.addEventListener('click', () => toScreen(button.textContent)))
+    button.addEventListener('click', () => toScreen(button.textContent)));
+
+btnOperator.forEach((button) =>
+    button.addEventListener('click', () => toOperator(button.textContent)));
 
 function toScreen(number){
     screen.textContent += number
+    currentNum += number
+}
+
+function toOperator(op){
+    let operator = op;
+    previousNum = currentNum;
+    previous.textContent += previousNum + operator;
+    currentNum = '';
+    screen.textContent = currentNum;
 }
 
 // 4 main math functions
