@@ -8,6 +8,9 @@ const previous = document.getElementById('previous')
 
 const btnNum = document.querySelectorAll('.btn-num');
 const btnOperator = document.querySelectorAll('.btn-operator');
+const equals = document.getElementById('equals');
+const decimal = document.getElementById('dot');
+const clear = document.getElementById('clear')
 
 btnNum.forEach((button) => 
     button.addEventListener('click', () => toScreen(button.textContent)));
@@ -15,50 +18,39 @@ btnNum.forEach((button) =>
 btnOperator.forEach((button) =>
     button.addEventListener('click', () => toOperator(button.textContent)));
 
+equals.addEventListener('click', calculate)
+
 function toScreen(number){
     screen.textContent += number
     currentNum += number
 }
 
 function toOperator(op){
-    let operator = op;
+    operator = op;
     previousNum = currentNum;
-    previous.textContent += previousNum + operator;
+    previous.textContent += previousNum + ' ' + operator;
     currentNum = '';
     screen.textContent = currentNum;
 }
 
-// 4 main math functions
+function calculate(){
+    previousNum = Number(previousNum);
+    currentNum = Number(currentNum);
 
-function addition (num1, num2){
-    return num1 + num2;
-}
-
-function subtraction (num1, num2){
-    return num1 - num2;
-}
-
-function multiplication (num1, num2){
-    return num1 * num2;
-}
-
-function division (num1, num2){
-    if(num2 === 0){
-        return 'Error'
-    } else{
-        return num1/num2;
+    if (operator === '+'){
+        currentNum = previousNum += currentNum;
+    } else if (operator === '-'){
+        currentNum = previousNum -= currentNum;
+    } else if(operator === '*'){
+        currentNum = previousNum * currentNum;
+    } else if (operator === '/'){
+        if (currentNum === 0){
+            alert('Cannot divide by zero')
+        } else{
+            currentNum = previousNum / currentNum;
+        }
     }
-}
-
-function operate (operator, num1, num2){
-    switch (operator){
-        case '+':
-            return addition(num1, num2);
-        case '-':
-            return subtraction(num1, num2);
-        case '*':
-            return multiplication(num1, num2);
-        case '/':
-            return division(num1, num2);
-    }
+    screen.textContent = '';
+    previous.textContent = '';
+    screen.textContent += currentNum;
 }
