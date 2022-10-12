@@ -1,0 +1,20 @@
+#calc-body {
+    width: 300px;
+    height: 400px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+}
+
+#screen, #enter-row, .number-rows {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 25px
+}
+
+#screen {
+    height: 100px;
+    width: 250px;
+    margin: 25px auto;
+    border: 2px solid black
+}
