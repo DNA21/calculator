@@ -18,7 +18,12 @@ btnNum.forEach((button) =>
 btnOperator.forEach((button) =>
     button.addEventListener('click', () => toOperator(button.textContent)));
 
-equals.addEventListener('click', calculate)
+equals.addEventListener('click', () => {
+    if(currentNum != '' && previousNum != ''){
+        calculate();
+    }})
+
+clear.addEventListener('click', clearCalc)
 
 function toScreen(number){
     screen.textContent += number
@@ -54,3 +59,14 @@ function calculate(){
     previous.textContent = '';
     screen.textContent += currentNum;
 }
+
+function clearCalc(){
+    screen.textContent = '';
+    previous.textContent = '';
+    currentNum = '';
+    previousNum = '';
+}
+
+// Needs operator check so no more than 1 operator will display and work at a time
+// decimal
+// round numbers

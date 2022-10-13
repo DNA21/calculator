@@ -1,4 +1,17 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    background-color: lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #calc-body {
+    background-color: aliceblue;
     width: 300px;
     height: 400px;
     border: 2px solid black;
@@ -41,4 +54,12 @@
 
 .btn-num, .btn-operator, #equals {
     width: 90%
+}
+
+#current {
+    font-size: 36px;
+}
+
+#previous {
+    font-size: 20px;
 }
